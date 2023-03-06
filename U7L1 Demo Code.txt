@@ -1,0 +1,30 @@
+﻿import pygame
+
+
+# set up pygame modules
+pygame.init()
+pygame.font.init()
+font = pygame.font.SysFont('Arial', 15)
+pygame.display.set_caption("AP CSP Pygame!")
+
+
+# set up variables for the display
+size = (400, 300)
+screen = pygame.display.set_mode(size)
+display_name = font.render("Ms. T", True, (255, 255, 255))
+
+
+# main "program loop"
+# keeps the window open via the "update" method being called
+# over and over again
+run = True
+while run:
+   screen.fill((0, 0, 0))
+   screen.blit(display_name, (0, 0))
+
+
+   # "event listening" loop
+   for event in pygame.event.get():  # process all user events
+       if event.type == pygame.QUIT:  # check if user clicked close
+           run = False
+   pygame.display.update()
